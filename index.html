@@ -11,12 +11,12 @@
     <section class="hero">
       <p class="eyebrow">Signature Upload</p>
       <h1>免登入簽名上傳系統</h1>
-      <p>訪客打開後可直接簽名，填寫姓名後產生 GitHub Issue 上傳頁，將簽名圖檔送到 repository 留存。</p>
+      <p>訪客可直接簽名並送出，系統會透過 Cloudflare Worker 自動把 PNG 寫入 GitHub repo 的 <code>signatures/</code> 目錄。</p>
     </section>
 
     <section class="panel">
       <div class="formRow">
-        <label>簽名者姓名<input id="signerName" type="text" placeholder="請輸入姓名" /></label>
+        <label>簽名者姓名<input id="signerName" type="text" placeholder="請輸入姓名" required /></label>
         <label>備註<input id="note" type="text" placeholder="可留空" /></label>
       </div>
 
@@ -25,7 +25,7 @@
         <label>筆粗<input id="penSize" type="range" min="1" max="12" value="4" /></label>
         <button id="clearBtn" type="button">清除</button>
         <button id="downloadBtn" type="button">下載 PNG</button>
-        <button id="uploadBtn" type="button" class="primary">產生免登入上傳頁</button>
+        <button id="uploadBtn" type="button" class="primary">送出並上傳 GitHub</button>
       </div>
 
       <div class="canvasWrap">
@@ -33,7 +33,7 @@
       </div>
 
       <div id="result" class="result" hidden></div>
-      <p class="hint">說明：瀏覽器不能安全保存 GitHub 寫入權杖，因此本系統使用公開 Issue 提交流程。訪客不需在本網站登入；送出時會開啟 GitHub Issue 頁面，使用者按提交即可把簽名資料送到 repo。</p>
+      <p class="hint">第一次正式使用前，請在 <code>script.js</code> 設定你的 Worker API 網址，並在 Cloudflare Worker 設定 GitHub Token。</p>
     </section>
   </main>
 
