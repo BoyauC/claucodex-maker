@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>簽名板系統</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <p class="eyebrow">Signature Pad</p>
+      <h1>簽名板系統</h1>
+      <p>打開網頁即可在下方簽名，完成後可下載 PNG 檔，再上傳到 GitHub repository。</p>
+    </section>
+
+    <section class="panel">
+      <div class="toolbar" aria-label="簽名工具列">
+        <label>
+          筆色
+          <input id="penColor" type="color" value="#111827" />
+        </label>
+        <label>
+          筆粗
+          <input id="penSize" type="range" min="1" max="12" value="4" />
+        </label>
+        <button id="clearBtn" type="button">清除</button>
+        <button id="downloadBtn" type="button" class="primary">下載簽名 PNG</button>
+      </div>
+
+      <div class="canvasWrap">
+        <canvas id="signaturePad" aria-label="簽名畫布"></canvas>
+      </div>
+
+      <p class="hint">支援滑鼠、觸控筆與手機手指簽名。調整視窗大小時會保留目前簽名。</p>
+    </section>
+
+    <section class="panel steps">
+      <h2>上傳到 GitHub 的方式</h2>
+      <ol>
+        <li>按「下載簽名 PNG」取得圖片檔。</li>
+        <li>進入你的 GitHub repo，例如 <code>BoyauC/claucodex-maker</code>。</li>
+        <li>點選 <strong>Add file → Upload files</strong>，上傳 PNG 後 commit。</li>
+      </ol>
+      <p>注意：瀏覽器前端不能安全地內建 GitHub Token，所以本系統不會把你的權杖寫進程式碼。若要做到「按一下直接寫入 GitHub」，建議加一個後端或 GitHub App 代管授權。</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
