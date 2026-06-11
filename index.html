@@ -11,20 +11,31 @@
     <header>
       <p class="tag">Original Arcade Fighting Game</p>
       <h1>街機格鬥王</h1>
-      <p>原創雙人格鬥小遊戲：移動、跳躍、攻擊、防禦，把對手血量歸零即可獲勝。</p>
+      <p>選擇角色，累積能量，釋放必殺技！</p>
     </header>
 
+    <section id="select" class="select">
+      <h2>角色選擇</h2>
+      <div class="cards">
+        <button class="card" data-player="1" data-fighter="ryu">玩家1：烈風拳士<br><small>速度快 / 火焰波</small></button>
+        <button class="card" data-player="1" data-fighter="tank">玩家1：鐵甲鬥士<br><small>血厚 / 地震拳</small></button>
+        <button class="card" data-player="2" data-fighter="ryu">玩家2：烈風拳士<br><small>速度快 / 火焰波</small></button>
+        <button class="card" data-player="2" data-fighter="tank">玩家2：鐵甲鬥士<br><small>血厚 / 地震拳</small></button>
+      </div>
+      <button id="start" class="primary">開始對戰</button>
+    </section>
+
     <section class="hud">
-      <div><strong>玩家 1</strong><div class="bar"><span id="p1hp"></span></div><small>A/D 移動、W 跳、F 拳、G 防禦</small></div>
+      <div><strong id="p1name">玩家 1</strong><div class="bar"><span id="p1hp"></span></div><div class="energy"><span id="p1en"></span></div><small>A/D移動 W跳 F攻擊 G防禦 H必殺</small></div>
       <div class="timer" id="timer">60</div>
-      <div><strong>玩家 2</strong><div class="bar"><span id="p2hp"></span></div><small>←/→ 移動、↑ 跳、K 拳、L 防禦</small></div>
+      <div><strong id="p2name">玩家 2</strong><div class="bar"><span id="p2hp"></span></div><div class="energy"><span id="p2en"></span></div><small>←/→移動 ↑跳 K攻擊 L防禦 O必殺</small></div>
     </section>
 
     <canvas id="game" width="960" height="520"></canvas>
 
     <section class="controls">
       <button id="restart">重新開始</button>
-      <p id="message">按鍵開始對戰！</p>
+      <p id="message">請先選角，再開始對戰。</p>
     </section>
   </main>
   <script src="script.js"></script>
