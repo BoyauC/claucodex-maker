@@ -3,40 +3,30 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>免登入簽名上傳系統</title>
+  <title>街機格鬥王</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="app">
-    <section class="hero">
-      <p class="eyebrow">Signature Upload</p>
-      <h1>免登入簽名上傳系統</h1>
-      <p>訪客可直接簽名並送出，系統會透過 Cloudflare Worker 自動把 PNG 寫入 GitHub repo 的 <code>signatures/</code> 目錄。</p>
+  <main class="wrap">
+    <header>
+      <p class="tag">Original Arcade Fighting Game</p>
+      <h1>街機格鬥王</h1>
+      <p>原創雙人格鬥小遊戲：移動、跳躍、攻擊、防禦，把對手血量歸零即可獲勝。</p>
+    </header>
+
+    <section class="hud">
+      <div><strong>玩家 1</strong><div class="bar"><span id="p1hp"></span></div><small>A/D 移動、W 跳、F 拳、G 防禦</small></div>
+      <div class="timer" id="timer">60</div>
+      <div><strong>玩家 2</strong><div class="bar"><span id="p2hp"></span></div><small>←/→ 移動、↑ 跳、K 拳、L 防禦</small></div>
     </section>
 
-    <section class="panel">
-      <div class="formRow">
-        <label>簽名者姓名<input id="signerName" type="text" placeholder="請輸入姓名" required /></label>
-        <label>備註<input id="note" type="text" placeholder="可留空" /></label>
-      </div>
+    <canvas id="game" width="960" height="520"></canvas>
 
-      <div class="toolbar" aria-label="簽名工具列">
-        <label>筆色<input id="penColor" type="color" value="#111827" /></label>
-        <label>筆粗<input id="penSize" type="range" min="1" max="12" value="4" /></label>
-        <button id="clearBtn" type="button">清除</button>
-        <button id="downloadBtn" type="button">下載 PNG</button>
-        <button id="uploadBtn" type="button" class="primary">送出並上傳 GitHub</button>
-      </div>
-
-      <div class="canvasWrap">
-        <canvas id="signaturePad" aria-label="簽名畫布"></canvas>
-      </div>
-
-      <div id="result" class="result" hidden></div>
-      <p class="hint">第一次正式使用前，請在 <code>script.js</code> 設定你的 Worker API 網址，並在 Cloudflare Worker 設定 GitHub Token。</p>
+    <section class="controls">
+      <button id="restart">重新開始</button>
+      <p id="message">按鍵開始對戰！</p>
     </section>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
